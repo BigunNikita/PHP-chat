@@ -1,0 +1,316 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: #207ba7;
+    background: linear-gradient(90deg, #096391 0%,#207ba7) 100%;
+    box-shadow: black 0 0 20px;
+    z-index: 1;
+    height: 70px;
+}
+.header-logo {
+    color: white;
+    font-weight: bold;
+    font-size: 18pt;
+    padding-left: 10%;
+    padding-top: 20px;
+}
+.header-logo a{
+    color:white;
+    text-decoration: none;
+}
+.header-logo a:hover{
+    color:#d6d6d6;
+}
+.header-menu {
+    padding-top: 25px;
+    padding-bottom: 10px;
+    padding-right: 10%;
+}
+.header-menu ul {
+    display: flex;
+}
+.header-menu li {
+    list-style-type: none;
+}
+.header-menu li a {
+    font-family: 'Montserrat', sans-serif;
+    margin-left: 20px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+.header-menu a:hover{
+    color:#d6d6d6;
+}
+.header-menu a {
+    display: block;
+    position: relative;
+    
+}
+.content {
+    width: 90%;
+    margin: auto;
+    box-shadow: 0 30px 40px rgb(0 0 0 / 40%);
+    background-color: white;
+    max-width: 1200px;
+}
+.chat{
+    margin-top:40px;
+    padding:30px;
+    padding-bottom:100px;
+    border: 3px solid rgba(111, 128, 144,0.5);
+}
+.chat-block{
+    display: flex;
+}
+.chat-content{
+    width:80%;
+}
+.messages-block{
+
+    background-color:blanchedalmond;
+    overflow-y: scroll;
+    max-height: 300px;
+    border:1px solid #b6b6b6;
+    border-right: none;
+}
+.container {
+    padding: 10px;
+    margin: 10px 0;
+}
+.self {
+    border-color: #ccc;
+    background-color: #ffdda9;
+    height:70px;
+}
+.container img {
+    float: left;
+    max-width: 40px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+.time {
+    float: right;
+    color: #838383;
+}
+.username{
+    font-weight: bold;
+    text-decoration: none;
+    color:black;
+}
+.members-block{
+    width:20%;
+    background:rgb(238, 238, 238);
+    border:1px solid #b6b6b6;
+    border-left:none;
+    overflow-y: scroll;
+    max-height: 400px;
+}
+.name{
+    text-align: center;
+    margin-bottom:30px;
+}
+.message-area{
+    display:flex;
+}
+.message-input{
+    width:90%;
+    padding:10px;
+    outline:none;
+}
+.send-btn{
+    background-color: steelblue;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    color:white;
+    width:150px;
+    font-weight: bold;
+
+}
+.online{
+    color:green;
+}
+.you{
+    background:#adadad;
+}
+.modal {
+    position: fixed; /* фиксированное положение */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5); /* цвет фона */
+    z-index: 1050;
+    opacity: 0; /* по умолчанию модальное окно прозрачно */
+    pointer-events: none; /* элемент невидим для событий мыши */
+    margin: 0;
+    padding: 0;
+}
+/* при отображении модального окно */
+.modal:target {
+    opacity: 1; /* делаем окно видимым */
+	  pointer-events: auto; /* элемент видим для событий мыши */
+    overflow-y: auto; /* добавляем прокрутку по y, когда элемент не помещается на страницу */
+}
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+      max-width: 500px;
+      margin: 30px auto; /* для отображения модального окна по центру */
+  }
+}
+/* свойства для блока, содержащего контент модального окна */ 
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+@media (min-width: 768px) {
+  .modal-content {
+      -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+      box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  }
+}
+/* свойства для заголовка модального окна */
+.modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #eceeef;
+}
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+/* свойства для кнопки "Закрыть" */
+.close {
+    float: right;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    text-decoration: none;
+}
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+/* свойства для блока, содержащего основное содержимое окна */
+.modal-body {
+  position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 15px;
+    overflow: auto;
+}
+.form{
+    display: flex;
+    align-items: center; 
+    flex-direction: column;
+}
+.form input{
+    outline: none;
+    padding: 5px;
+    width: 50%;
+    border: 1px solid cadetblue;
+}
+.btn{
+    margin-top:15px;
+    background-color: cornflowerblue;
+     cursor:pointer;
+}
+.ava-acc{
+    width:200px;
+}
+.ava-text{
+    background-color: thistle;
+    text-align: center;
+    padding:10px;
+    text-decoration: none;
+    font-weight: bold;
+    color:black;
+}
+.ava-text:hover{
+    opacity:0.7;
+}
+.ava-block{
+    display:flex;
+    flex-direction: column;
+    width:200px;
+    
+}
+.info-block{
+    padding-left:30px;
+    display:flex;
+    flex-direction: column;
+}
+.ava-change{
+    width:235px;
+    padding:10px;
+    cursor:pointer;
+}
+.change-btn{
+    width:100%;
+    outline: none;
+    background-color: skyblue;
+    border:1px solid black;
+    padding:5px;
+    cursor:pointer;
+}
+.avatarka{
+    display:none;
+
+}
+.avatarka:checked + .ava-change{
+    border:2px solid black;
+}
